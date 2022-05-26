@@ -1,0 +1,263 @@
+# tenant can be one of $tenant3$, $tenant2$ or $tenant1$
+# action can be one of dry-run, deploy, delete or download
+# the list name under configs ("- Foo", below) will be used for base of the management zone name:
+# configs:
+#  - Foo
+#    app: 'FOO'
+#    env: 'DEVELOPMENT'
+#    domain: foo.$account$.com
+# The settings above will create a management zone named "App: Foo - Dev" based on the config name
+#  and the environment "short name"
+# app (or apps, if multiple host groups need to be included under a single management zone) need to match
+#  the "name in six" used by the Puppet script to set the first part of the host group name
+# env needs to match the environment name used by the Puppet script to set the second part of the host group name
+# calls_database is optional and should be set to "False" for an application that does not use a database.
+#  It defaults to true, so it can be left off for the vast majority of apps that do call a database.
+# clusters can optionally be set to one or more kubernetes clusters that need to be incorporated into the management zone.
+
+tenant: $tenant3$
+action: deploy
+configs:
+ - Dave:
+    app: 'DAVE'
+    env: 'DEVELOPMENT'
+    domain: dave.$account$.com
+
+
+# LENDING
+#tenant: $tenant3$
+#action: delete
+#configs:
+# - Lending:
+#    apps: [EASE, EASEIN, BATINT, INCALC, LESUP, PAYOFF, POSTCL, SFINTG, SRVCNG, TPARTY, UWRITE]
+#    env: 'DEVELOPMENT'
+#    domain: ease.$account$.com
+
+# LENDING
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - Lending:
+#    apps: [EASE, EASEIN, BATINT, INCALC, LESUP, PAYOFF, POSTCL, SFINTG, SRVCNG, TPARTY, UWRITE]
+#    env: 'DEVELOPMENT'
+#    domain: ease.$account$.com
+# - Lending-EASE:
+#    app: EASE
+#    env: 'DEVELOPMENT'
+#    domain: ease.$account$.com
+# - Lending-EASEIN:
+#    app: EASEIN
+#    env: 'DEVELOPMENT'
+# - Lending-BATINT:
+#    app: BATINT
+#    env: 'DEVELOPMENT'
+# - Lending-INCALC:
+#    app: INCALC
+#    env: 'DEVELOPMENT'
+# - Lending-LESUP:
+#    app: LESUP
+#    env: 'DEVELOPMENT'
+# - Lending-PAYOFF:
+#    app: PAYOFF
+#    env: 'DEVELOPMENT'
+# - Lending-POSTCL:
+#    app: POSTCL
+#    env: 'DEVELOPMENT'
+# - Lending-SFINTG:
+#    app: SFINTG
+#    env: 'DEVELOPMENT'
+# - Lending-SRVCNG:
+#    app: SRVCNG
+#    env: 'DEVELOPMENT'
+# - Lending-TPARTY:
+#    app: TPARTY
+#    env: 'DEVELOPMENT'
+# - Lending-UWRITE:
+#    app: UWRITE
+#    env: 'DEVELOPMENT'
+
+# LENDING
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - Lending:
+#    apps: [EASE, EASEIN, BATINT, INCALC, LESUP, PAYOFF, POSTCL, SFINTG, SRVCNG, TPARTY, UWRITE]
+#    env: 'DEVELOPMENT'
+#    domain: ease.$account$.com
+
+#
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - Edge:
+#    app: 'EDGE'
+#    env: 'DEVELOPMENT'
+#    domain: los2.dev.unitedshore.com
+
+#Dev: https://los2.dev.unitedshore.com/
+#Stage: https://los2.stage.unitedshore.com/
+#Prod: https://los2.unitedshore.com/
+
+### Test Web App and Non-Web mix
+#tenant: $tenant3$
+#action: dry-run
+#configs:
+# - WebDB:
+#    app: 'WEBDB'
+#    env: 'DEVELOPMENT'
+#    domain: webdb.$account$.com
+# - WebNoDB:
+#    app: 'WEBNODB'
+#    env: 'DEVELOPMENT'
+#    domain: webnodb.$account$.com
+#    calls_database: False
+# - NonWebDB:
+#    app: 'NONWEBDB'
+#    env: 'DEVELOPMENT'
+# - NonWebNoDB:
+#    app: 'NONWEBNODB'
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+# - MultiNonWebDB:
+#    apps: ['MULTINONWEBDB1', 'MULTINONWEBDB2']
+#    env: 'DEVELOPMENT'
+# - MultiNonWebNoDB:
+#    apps: ['MULTINONWEBNODB1', 'MULTINONWEBNODB2']
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+# - MultiNonWebDBK8s:
+#    apps: ['MULTINONWEBDBK8S1', 'MULTINONWEBDBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+# - WebDBK8S:
+#    app: 'WebDBK8S'
+#    env: 'DEVELOPMENT'
+#    domain: webdbk8s.$account$.com
+#    clusters: ['s91k8spilot002']
+# - MultiNonWebNoDBK8s:
+#    apps: ['MULTINONWEBNODBK8S1', 'MULTINONWEBNODBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+# - MultiWebNoDBK8s:
+#    apps: ['MULTIWEBNODBK8S1', 'MULTIWEBNODBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    domain: multiwebnodbk8s.$account$.com
+#    calls_database: False
+# - MultiWebDBK8s:
+#    apps: ['MULTIWEBDBK8S1', 'MULTIWEBDBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    domain: multiwebdbk8s.$account$.com
+# - MultiWebDBMultiK8s:
+#    apps: ['MULTIWEBDBMULTIK8S1', 'MULTIWEBDBMULTIK8S2']
+#    clusters: ['s91k8spilot002', 's91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    domain: multiwebdbmultik8s.$account$.com
+# - MultiWebNoDBMultiK8s:
+#    apps: ['MULTIWEBNODBMULTIK8S1', 'MULTIWEBNODBMULTIK8S2']
+#    clusters: ['s91k8spilot002', 's91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    domain: multiwebnodbmultik8s.$account$.com
+#    calls_database: False
+
+## Test Web App with Multiple Host Groups, No database and multiple kubernetes clusters
+#tenant: $tenant3$
+#action: delete
+#configs:
+# - MultiWebNoDBMultiK8s:
+#    apps: ['MULTIWEBNODBMULTIK8S1', 'MULTIWEBNODBMULTIK8S2']
+#    clusters: ['s91k8spilot002', 's91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    domain: multiwebnodbmultik8s.$account$.com
+#    calls_database: False
+
+# Test Web App with Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - WebDB:
+#    app: 'WEBDB'
+#    env: 'DEVELOPMENT'
+#    domain: webdb.$account$.com
+
+# Test Web App with No Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#calls_database: False
+#configs:
+# - WebNoDB:
+#    app: 'WEBNODB'
+#    env: 'DEVELOPMENT'
+#    domain: webnodb.$account$.com
+#    calls_database: False
+# Test Non-Web with Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - NonWebDB:
+#    app: 'NONWEBDB'
+#    env: 'DEVELOPMENT'
+
+# Test Non-Web with No Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#calls_database: False
+#configs:
+# - NonWebNoDB:
+#    app: 'NONWEBNODB'
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+
+# Test Multiple Non-Web with Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - MultiNonWebDB:
+#    apps: ['MULTINONWEBDB1', 'MULTINONWEBDB2']
+#    env: 'DEVELOPMENT'
+
+# Test Multiple Non-Web with No Database Calls:
+#tenant: $tenant3$
+#action: deploy
+#calls_database: False
+#configs:
+# - MultiNonWebNoDB:
+#    apps: ['MULTINONWEBNODB1', 'MULTINONWEBNODB2']
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+
+# Test Multiple Non-Web with Database Calls and Kubernetes:
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - MultiNonWebDBK8s:
+#    apps: ['MULTINONWEBDBK8S1', 'MULTINONWEBDBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+
+# Test Multiple Non-Web with No Database Calls and Kubernetes:
+#tenant: $tenant3$
+#action: deploy
+#calls_database: False
+#configs:
+# - MultiNonWebNoDBK8s:
+#    apps: ['MULTINONWEBNODBK8S1', 'MULTINONWEBNODBK8S2']
+#    clusters: ['s91k8spilot002']
+#    env: 'DEVELOPMENT'
+#    calls_database: False
+
+# ----------------------
+# Currently unsupported
+# ----------------------
+
+# Test Web App with Database Calls and Kubernetes:
+#tenant: $tenant3$
+#action: deploy
+#configs:
+# - WebDBK8S:
+#    app: 'WebDBK8S'
+#    env: 'DEVELOPMENT'
+#    domain: webdbk8s.$account$.com
+#    clusters: ['s91k8spilot002']

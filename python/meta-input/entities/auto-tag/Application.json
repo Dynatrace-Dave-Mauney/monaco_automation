@@ -1,0 +1,178 @@
+{
+ "description": null,
+ "entitySelectorBasedRules": [
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:UWRITE))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "UWRITE"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:POSTCL))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "POSTCL"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:PAYOFF))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "PAYOFF"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:EASEIN))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "EASEIN"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:TPARTY))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "TPARTY"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SFINTG))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "SFINTG"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE),        databaseName.exists(),        toRelationships.calls(type(SERVICE),        tag(Application:EDGE))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "EDGE"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SRVCNG))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "SRVCNG"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:EASE))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "EASE"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:LESUP))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "LESUP"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:INCALC))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "INCALC"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:BATINT))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "BATINT"
+  }
+ ],
+ "metadata": {
+  "clusterVersion": "1.241.180.20220520-165831",
+  "configurationVersions": [],
+  "currentConfigurationVersions": [
+   "0.0.29"
+  ]
+ },
+ "name": "{{.name}}",
+ "rules": [
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "caseSensitive": true,
+      "negate": false,
+      "operator": "REGEX_MATCHES",
+      "type": "STRING",
+      "value": "\\(.*_.*\\)"
+     },
+     "key": {
+      "attribute": "WEB_APPLICATION_NAME",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "propagationTypes": [],
+   "type": "APPLICATION",
+   "valueFormat": "{WebApplication:Name/\\((.*?)_}"
+  },
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "caseSensitive": true,
+      "negate": false,
+      "operator": "CONTAINS",
+      "type": "STRING",
+      "value": "_"
+     },
+     "key": {
+      "attribute": "HOST_GROUP_NAME",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "propagationTypes": [
+    "PROCESS_GROUP_TO_HOST",
+    "PROCESS_GROUP_TO_SERVICE"
+   ],
+   "type": "PROCESS_GROUP",
+   "valueFormat": "{HostGroup:Name/^(.*?)_}"
+  },
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "caseSensitive": true,
+      "negate": false,
+      "operator": "REGEX_MATCHES",
+      "type": "STRING",
+      "value": "\\(.*_.*\\)"
+     },
+     "key": {
+      "attribute": "HTTP_MONITOR_NAME",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "propagationTypes": [],
+   "type": "HTTP_CHECK",
+   "valueFormat": "{HttpMonitor:Name/\\((.*?)_}"
+  },
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "caseSensitive": true,
+      "negate": false,
+      "operator": "REGEX_MATCHES",
+      "type": "STRING",
+      "value": "\\(.*_.*\\)"
+     },
+     "key": {
+      "attribute": "BROWSER_MONITOR_NAME",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "propagationTypes": [],
+   "type": "SYNTHETIC_TEST",
+   "valueFormat": "{BrowserMonitor:Name/\\((.*?)_}"
+  }
+ ]
+}

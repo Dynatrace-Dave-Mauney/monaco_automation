@@ -1,0 +1,14 @@
+{
+ "applicationIdentifier": "{{.id}}",
+ "filterConfig": {
+  "applicationMatchTarget": "DOMAIN",
+  "applicationMatchType": "MATCHES",
+  "pattern": "{{.pattern}}"
+ },
+ "metadata": {
+  "clusterVersion": "1.235.149.20220221-150413",
+  "configurationVersions": [
+   0
+  ]
+ }
+}

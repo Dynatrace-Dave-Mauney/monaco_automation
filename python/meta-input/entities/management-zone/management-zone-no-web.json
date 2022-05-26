@@ -1,0 +1,107 @@
+{
+ "description": null,
+ "dimensionalRules": [],
+ "entitySelectorBasedRules": [],
+ "metadata": {
+  "clusterVersion": "1.235.149.20220221-150413",
+  "configurationVersions": [
+   0
+  ]
+ },
+ "name": "{{.name}}",
+ "rules": [
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "Application",
+       "value": "{{.app}}"
+      }
+     },
+     "key": {
+      "attribute": "PROCESS_GROUP_TAGS",
+      "type": "STATIC"
+     }
+    },
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "Environment",
+       "value": "{{.env}}"
+      }
+     },
+     "key": {
+      "attribute": "PROCESS_GROUP_TAGS",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "propagationTypes": [
+    "PROCESS_GROUP_TO_HOST",
+    "PROCESS_GROUP_TO_SERVICE"
+   ],
+   "type": "PROCESS_GROUP"
+  },
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "SERVICE_TYPE",
+      "value": "DATABASE_SERVICE"
+     },
+     "key": {
+      "attribute": "SERVICE_TYPE",
+      "type": "STATIC"
+     }
+    },
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "Application",
+       "value": "{{.app}}"
+      }
+     },
+     "key": {
+      "attribute": "SERVICE_TAGS",
+      "type": "STATIC"
+     }
+    },
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "Environment",
+       "value": "{{.env}}"
+      }
+     },
+     "key": {
+      "attribute": "SERVICE_TAGS",
+      "type": "STATIC"
+     }
+    }
+   ],
+   "enabled": true,
+   "propagationTypes": [],
+   "type": "SERVICE"
+  }
+ ]
+}

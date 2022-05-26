@@ -1,0 +1,4 @@
+$tenant2$-tenant:
+    - name: "$tenant2$"
+    - env-url: "https://$tenant2$.live.dynatrace.com"
+    - env-token-name: "$tenant2$-token"
