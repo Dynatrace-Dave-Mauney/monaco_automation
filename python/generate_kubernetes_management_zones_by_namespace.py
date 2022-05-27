@@ -6,17 +6,17 @@ import copy
 # # $ACCOUNT$ LOWER
 # tenant_name = '$ACCOUNT$ LOWER'
 # env = 'https://$tenant2$.live.dynatrace.com'
-# token = '$entity_token2$'
+# token = '$token2$'
 #
 # # $ACCOUNT$ SANDBOX
 # tenant_name = '$ACCOUNT$ SANDBOX'
 # env = 'https://$tenant3$.live.dynatrace.com'
-# token = '$entity_token3$'
+# token = '$token3$'
 #
 # $ACCOUNT$ UPPER
 tenant_name = '$ACCOUNT$ UPPER'
 env = '  https://$tenant1$.live.dynatrace.com'
-token = '$entity_token1$'
+token = '$token1$'
 
 
 def process(env, token):
