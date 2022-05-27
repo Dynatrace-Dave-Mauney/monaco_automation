@@ -1,5 +1,5 @@
 NOTE:
-If the name of this file is "monaco-$account$-README.txt" it means you need to deobfuscate the folder.  You will need to ask the author for instructions on how to do this if you have not already received them.
+If the name of this file is something like "monaco-$account%-README.txt" it means you need to deobfuscate the folder.  You will need to ask the author for instructions on how to do this if you have not already received them.
 
 There is a monaco directory that contains the "base monaco" executables and batch files that set the URLs and Tokens.
 
