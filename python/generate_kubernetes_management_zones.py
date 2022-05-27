@@ -3,19 +3,19 @@ import sys
 import dynatrace_rest_api_helper
 import copy
 
-# # UWM LOWER
-# tenant_name = 'UWM LOWER'
-# env = 'https://sdx86737.live.dynatrace.com'
+# # $ACCOUNT$ LOWER
+# tenant_name = '$ACCOUNT$ LOWER'
+# env = 'https://$tenant2$.live.dynatrace.com'
 # token = '$entity_token2$'
 #
-# UWM SANDBOX
-# tenant_name = 'UWM SANDBOX'
-# env = 'https://fqz97080.live.dynatrace.com'
+# $ACCOUNT$ SANDBOX
+# tenant_name = '$ACCOUNT$ SANDBOX'
+# env = 'https://$tenant3$.live.dynatrace.com'
 # token = '$entity_token3$'
 #
-# UWM UPPER
-tenant_name = 'UWM UPPER'
-env = '  https://bmk57446.live.dynatrace.com'
+# $ACCOUNT$ UPPER
+tenant_name = '$ACCOUNT$ UPPER'
+env = '  https://$tenant1$.live.dynatrace.com'
 token = '$entity_token1$'
 
 

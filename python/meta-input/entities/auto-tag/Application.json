@@ -3,9 +3,9 @@
  "entitySelectorBasedRules": [
   {
    "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:UWRITE))",
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:DAVE))",
    "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "UWRITE"
+   "valueFormat": "DAVE"
   },
   {
    "enabled": true,
@@ -15,27 +15,9 @@
   },
   {
    "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:PAYOFF))",
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:UWRITE))",
    "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "PAYOFF"
-  },
-  {
-   "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:EASEIN))",
-   "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "EASEIN"
-  },
-  {
-   "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:TPARTY))",
-   "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "TPARTY"
-  },
-  {
-   "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SFINTG))",
-   "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "SFINTG"
+   "valueFormat": "UWRITE"
   },
   {
    "enabled": true,
@@ -45,9 +27,9 @@
   },
   {
    "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SRVCNG))",
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:EASEIN))",
    "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "SRVCNG"
+   "valueFormat": "EASEIN"
   },
   {
    "enabled": true,
@@ -57,21 +39,45 @@
   },
   {
    "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:LESUP))",
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SFINTG))",
    "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "LESUP"
+   "valueFormat": "SFINTG"
   },
   {
    "enabled": true,
-   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:INCALC))",
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:TPARTY))",
    "normalization": "LEAVE_TEXT_AS_IS",
-   "valueFormat": "INCALC"
+   "valueFormat": "TPARTY"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:SRVCNG))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "SRVCNG"
   },
   {
    "enabled": true,
    "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:BATINT))",
    "normalization": "LEAVE_TEXT_AS_IS",
    "valueFormat": "BATINT"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:LESUP))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "LESUP"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:PAYOFF))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "PAYOFF"
+  },
+  {
+   "enabled": true,
+   "entitySelector": "type(SERVICE), databaseName.exists(),     toRelationships.calls(type(SERVICE), tag(Application:INCALC))",
+   "normalization": "LEAVE_TEXT_AS_IS",
+   "valueFormat": "INCALC"
   }
  ],
  "metadata": {

@@ -5,17 +5,17 @@ import copy
 
 # # $ACCOUNT$ LOWER
 # tenant_name = '$ACCOUNT$ LOWER'
-# env = 'https://sdx86737.live.dynatrace.com'
+# env = 'https://$tenant2$.live.dynatrace.com'
 # token = '$entity_token2$'
 #
 # # $ACCOUNT$ SANDBOX
 # tenant_name = '$ACCOUNT$ SANDBOX'
-# env = 'https://fqz97080.live.dynatrace.com'
+# env = 'https://$tenant3$.live.dynatrace.com'
 # token = '$entity_token3$'
 #
 # $ACCOUNT$ UPPER
 tenant_name = '$ACCOUNT$ UPPER'
-env = '  https://bmk57446.live.dynatrace.com'
+env = '  https://$tenant1$.live.dynatrace.com'
 token = '$entity_token1$'
 
 

@@ -15,26 +15,8 @@
 #  It defaults to true, so it can be left off for the vast majority of apps that do call a database.
 # clusters can optionally be set to one or more kubernetes clusters that need to be incorporated into the management zone.
 
-tenant: $tenant3$
-action: deploy
-configs:
- - Dave:
-    app: 'DAVE'
-    env: 'DEVELOPMENT'
-    domain: dave.$account$.com
-
-
 # LENDING
-#tenant: $tenant3$
-#action: delete
-#configs:
-# - Lending:
-#    apps: [EASE, EASEIN, BATINT, INCALC, LESUP, PAYOFF, POSTCL, SFINTG, SRVCNG, TPARTY, UWRITE]
-#    env: 'DEVELOPMENT'
-#    domain: ease.$account$.com
-
-# LENDING
-#tenant: $tenant3$
+#tenant: $tenant2$
 #action: deploy
 #configs:
 # - Lending:
@@ -44,7 +26,6 @@ configs:
 # - Lending-EASE:
 #    app: EASE
 #    env: 'DEVELOPMENT'
-#    domain: ease.$account$.com
 # - Lending-EASEIN:
 #    app: EASEIN
 #    env: 'DEVELOPMENT'
@@ -75,6 +56,39 @@ configs:
 # - Lending-UWRITE:
 #    app: UWRITE
 #    env: 'DEVELOPMENT'
+
+#tenant: $tenant1$
+#action: deploy
+#configs:
+# - DocHub:
+#    apps: ['DHBADM','DHBAPI','DHBDOC','DHBJBR','DHBUIS','DHBALL','DHBLOG','DHBPTR','SEQ']
+#    clusters: ['s80k8socr001']
+#    env: 'STAGE'
+
+#tenant: $tenant1$
+#action: deploy
+#configs:
+# - DocHub:
+#    apps: ['DHBADM','DHBAPI','DHBDOC','DHBJBR','DHBUIS','DHBALL','DHBLOG','DHBPTR','SEQ']
+#    clusters: ['s80k8pocr001']
+#    env: 'PRODUCTION'
+
+tenant: $tenant3$
+action: dry-run
+configs:
+ - Dave:
+    app: 'DAVE'
+    env: 'DEVELOPMENT'
+    domain: dave.$account$.com
+
+# LENDING
+#tenant: $tenant3$
+#action: delete
+#configs:
+# - Lending:
+#    apps: [EASE, EASEIN, BATINT, INCALC, LESUP, PAYOFF, POSTCL, SFINTG, SRVCNG, TPARTY, UWRITE]
+#    env: 'DEVELOPMENT'
+#    domain: ease.$account$.com
 
 # LENDING
 #tenant: $tenant3$

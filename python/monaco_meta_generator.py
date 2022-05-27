@@ -178,6 +178,7 @@ def get_k8s_cluster_id(k8s_cluster):
 			else:
 				if tenant == '$tenant1$':
 					env_url = 'https://$tenant1$.live.dynatrace.com'
+					# env_token = '$entity_token1$'
 					env_token = '$entity_token1$'
 				else:
 					print('Unsupported tenant specified in meta.yaml')

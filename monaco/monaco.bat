@@ -1,6 +1,6 @@
-set $tenant1$-token=$monaco_token1$
-set $tenant3$-token=$monaco_token3$
-set $tenant2$-token=$monaco_token2$
+set $tenant1$-token=$entity_token1$
+set $tenant2$-token=$entity_token2$
+set $tenant3$-token=$entity_token3$
 
 set NEW_CLI=1
 

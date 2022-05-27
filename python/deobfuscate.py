@@ -2,8 +2,8 @@ import os
 import yaml
 
 
-def get_deobfuscation_data():
-    with open('deobfuscation.yaml', 'r') as file:
+def get_deobfuscate_data():
+    with open('deobfuscate.yaml', 'r') as file:
         document = file.read()
         return yaml.load(document, Loader=yaml.FullLoader)
 
@@ -37,14 +37,14 @@ def deobfuscate_directory(directory):
 
 
 def deobfuscate_string(string):
-    deobfuscation_data = get_deobfuscation_data()
-    account = deobfuscation_data.get('account', '')
-    tenants = deobfuscation_data.get('tenants', [])
-    monaco_tokens = deobfuscation_data.get('monaco_tokens', [])
-    entity_tokens = deobfuscation_data.get('entity_tokens', [])
+    deobfuscate_data = get_deobfuscate_data()
+    account = deobfuscate_data.get('account', '')
+    tenants = deobfuscate_data.get('tenants', [])
+    monaco_tokens = deobfuscate_data.get('monaco_tokens', [])
+    entity_tokens = deobfuscate_data.get('entity_tokens', [])
 
     if account == '' or len(tenants) != 3 or len(monaco_tokens) != 3 or len(entity_tokens) != 3:
-        print("Deobfuscation data yaml file must contain an account string, "
+        print("deobfuscate.yaml file must contain an account string, "
               "a list of three tenants and two lists of three tokens for monaco and for entities. Aborting!")
         exit()
 
@@ -62,7 +62,7 @@ def deobfuscate_string(string):
 
     new_string = string
 
-    if '$tenant' in string.lower():
+    if '$tenant' in string.lower() or '$account' in string.lower():
         new_string = new_string.replace('$tenant3$', tenant3.lower())
         new_string = new_string.replace('$tenant2$', tenant2.lower())
         new_string = new_string.replace('$tenant1$', tenant1.lower())
@@ -83,4 +83,4 @@ def deobfuscate_string(string):
 
 
 if __name__ == '__main__':
-    deobfuscate_directory('$account$-transition')
+    deobfuscate_directory('uwm-transition')
