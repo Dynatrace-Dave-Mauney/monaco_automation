@@ -25,8 +25,7 @@ def deobfuscate_directory(directory):
     for subdir, dirs, files in os.walk(directory):
         for file in files:
             path = os.path.join(subdir, file)
-            # dump_file(path)
-            if '.exe' not in path:
+            if '.exe' not in path and '.git' not in path:
                 fin = open(path, "rt")
                 data = fin.read()
                 data = deobfuscate_string(data)
@@ -78,4 +77,12 @@ def deobfuscate_string(string):
 
 
 if __name__ == '__main__':
-    deobfuscate_directory('uwm-transition')
+    print(os.getcwd())
+    if '\\Automation\\Monaco' in os.getcwd():
+        deobfuscate_data = get_deobfuscate_data()
+        account = deobfuscate_data.get('account', '')
+        deobfuscate_dir = account + '-transition'
+        print('Deobfuscating ' + deobfuscate_dir)
+        deobfuscate_directory(deobfuscate_dir)
+    else:
+        deobfuscate_directory('..')
